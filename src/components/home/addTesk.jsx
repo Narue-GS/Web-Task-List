@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../../App.css"
-import validations from "../../validations";
-
+import IsValid from "../../validations";
 import Buttom from "../general/Buttom";
 const AddTesk = ({hendleAdd}) => {
     const [taskData, setTaskData] = useState("")
@@ -10,7 +9,7 @@ const AddTesk = ({hendleAdd}) => {
         setTaskData(e.target.value)
     }
     const hendleAddClick = () => {
-        if(validations.validTask(taskData)) {
+        if(IsValid.task(taskData)) {
             hendleAdd(taskData)
             setTaskData("")
         }
