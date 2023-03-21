@@ -1,9 +1,9 @@
 import React from "react";
 
-const AddBtn = ({children, onClick}) => {
+const Buttom = ({children, onClick}) => {
     return(
     <button className="add-btn" onClick={onClick}>{children}</button>
     )
 }
 
-export default AddBtn;
+export default Buttom;

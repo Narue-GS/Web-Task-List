@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../App.css"
-
-import AddBtn from "./addBtn";
+import "../../App.css"
+import IsValid from "../../validations";
+import Buttom from "../general/Buttom";
 const AddTesk = ({hendleAdd}) => {
     const [taskData, setTaskData] = useState("")
 
@@ -9,12 +9,18 @@ const AddTesk = ({hendleAdd}) => {
         setTaskData(e.target.value)
     }
     const hendleAddClick = () => {
-        hendleAdd(taskData)
+        if(IsValid.task(taskData)) {
+            hendleAdd(taskData)
+            setTaskData("")
+        }
+        else {
+            alert("nop")
+        }
     }
     return ( 
         <div className="add-container">
             <input value={taskData} onChange={hendleInputChange} className="add-in" type="text" />
-            <AddBtn onClick={hendleAddClick}>Adicionar</AddBtn>
+            <Buttom onClick={hendleAddClick}>Adicionar</Buttom>
         </div>
      );
 }
